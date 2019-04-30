@@ -17,7 +17,8 @@ namespace lab4c
             }
             public void DecrQuant(int value)
             {
-                _itemQuantity -= value;
+                
+                   _itemQuantity -= value;
                 if (_itemQuantity < 0)
                     _itemQuantity = 0;
                 if (_itemQuantity > 1000)
@@ -56,6 +57,7 @@ namespace lab4c
                         Console.WriteLine("Producing");
                         _storage.DecrQuant(-10);
                         Console.WriteLine("QuantIn= " + _storage.GetQuant());
+
 
                         Monitor.PulseAll(_storage);
                     }
@@ -98,7 +100,7 @@ namespace lab4c
             Consumer con1 = new Consumer(mainStorage);
             Consumer con2 = new Consumer(mainStorage);
             Consumer con3 = new Consumer(mainStorage);
-
+            Console.Write("  ");
             var thr1 = new Thread(new ThreadStart(prod.Run));
             thr1.Start();
 
